@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
-import 'cubit/office_cubit.dart';
+import 'cubit/dashboard_cubit.dart';
 import 'widgets/widgets.dart';
 
 class HomeView extends StatelessWidget {
@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
             Flexible(
                 flex: 5,
                 child: BlocProvider(
-                  create: (context) => OfficeCubit(OfficeRepositoryImp(
+                  create: (context) => DashboardCubit(OfficeRepositoryImp(
                       OfficeRemoteDataSource(http.Client())))
                     ..fetchOffice(),
                   child: Header(),

@@ -3,18 +3,18 @@ import 'package:dashboard_app/domain/entities/office.dart';
 import 'package:dashboard_app/domain/repositories/office_repository.dart';
 import 'package:equatable/equatable.dart';
 
-part 'office_state.dart';
+part 'dashboard_state.dart';
 
-class OfficeCubit extends Cubit<OfficeState> {
+class DashboardCubit extends Cubit<DashboardState> {
   final OfficeRepository _repository;
-  OfficeCubit(this._repository) : super(OfficeInitial());
+  DashboardCubit(this._repository) : super(DashboardInitial());
 
   Future<void> fetchOffice() async {
     try {
-      emit(OfficeLoading());
+      emit(DashboardLoading());
       final officeOrFailure = await _repository.getOffice();
-      officeOrFailure.fold((failure) => emit(OfficeFailure("failure")),
-          (office) => emit(OfficeLoaded(office)));
+      officeOrFailure.fold((failure) => emit(DashboardFailure("failure")),
+          (office) => emit(DashboardLoaded(office)));
     } catch (e) {}
   }
 }

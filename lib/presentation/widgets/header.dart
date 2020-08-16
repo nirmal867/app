@@ -1,4 +1,4 @@
-import 'package:dashboard_app/presentation/cubit/office_cubit.dart';
+import 'package:dashboard_app/presentation/cubit/dashboard_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -57,13 +57,14 @@ class Header extends StatelessWidget {
                 ],
               ),
             ),
-            BlocBuilder<OfficeCubit, OfficeState>(
+            BlocBuilder<DashboardCubit, DashboardState>(
               builder: (context, state) {
-                if (state is OfficeLoaded) {
+                if (state is DashboardLoaded) {
                   // print(state.office.flag);
                   return Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: CachedNetworkImage(imageUrl: state.office.flag),
+                    // child: Image.network(state.office.flag),
                   );
                 }
                 return Container();
