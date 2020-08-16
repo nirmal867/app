@@ -1,11 +1,12 @@
-import 'package:dashboard_app/core/error/failure.dart';
-import 'package:dashboard_app/core/usecase/usecase.dart';
-import 'package:dashboard_app/domain/entities/employee.dart';
-import 'package:dashboard_app/domain/repositories/employee_repository.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../core/error/failure.dart';
+import '../../core/usecase/usecase.dart';
+import '../entities/employee.dart';
+import '../repositories/dashboard_repository.dart';
+
 class GetEmployee implements UseCase<List<Employee>, NoParams> {
-  final EmployeeRepository repository;
+  final DashboardRepository repository;
 
   const GetEmployee(this.repository);
 

@@ -1,11 +1,12 @@
-import 'package:dashboard_app/core/error/failure.dart';
-import 'package:dashboard_app/core/usecase/usecase.dart';
-import 'package:dashboard_app/domain/entities/video.dart';
-import 'package:dashboard_app/domain/repositories/video_repository.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../core/error/failure.dart';
+import '../../core/usecase/usecase.dart';
+import '../entities/video.dart';
+import '../repositories/dashboard_repository.dart';
+
 class GetVideo implements UseCase<List<Video>, NoParams> {
-  final VideoRepository repository;
+  final DashboardRepository repository;
 
   const GetVideo(this.repository);
 

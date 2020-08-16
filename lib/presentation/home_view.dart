@@ -1,5 +1,5 @@
-import 'package:dashboard_app/data/data_sources/office_remote_data_source.dart';
-import 'package:dashboard_app/data/repositories/officeRepositoryImpl.dart';
+import 'package:dashboard_app/data/data_sources/dashboard_remote_data_source.dart';
+import 'package:dashboard_app/data/repositories/dashboard_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
@@ -24,8 +24,8 @@ class HomeView extends StatelessWidget {
             Flexible(
                 flex: 5,
                 child: BlocProvider(
-                  create: (context) => DashboardCubit(OfficeRepositoryImp(
-                      OfficeRemoteDataSource(http.Client())))
+                  create: (context) => DashboardCubit(DashboardRepositoryImpl(
+                      DashboardRemoteDataSourceImpl(http.Client())))
                     ..fetchOffice(),
                   child: Header(),
                 )),

@@ -1,11 +1,12 @@
-import 'package:dashboard_app/core/error/failure.dart';
-import 'package:dashboard_app/core/usecase/usecase.dart';
-import 'package:dashboard_app/domain/entities/news.dart';
-import 'package:dashboard_app/domain/repositories/news_repository.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../core/error/failure.dart';
+import '../../core/usecase/usecase.dart';
+import '../entities/news.dart';
+import '../repositories/dashboard_repository.dart';
+
 class GetNews implements UseCase<List<News>, NoParams> {
-  final NewsRepository repository;
+  final DashboardRepository repository;
 
   GetNews(this.repository);
 

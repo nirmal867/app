@@ -1,11 +1,12 @@
-import 'package:dashboard_app/core/error/failure.dart';
-import 'package:dashboard_app/core/usecase/usecase.dart';
-import 'package:dashboard_app/domain/entities/office.dart';
-import 'package:dashboard_app/domain/repositories/office_repository.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../core/error/failure.dart';
+import '../../core/usecase/usecase.dart';
+import '../entities/office.dart';
+import '../repositories/dashboard_repository.dart';
+
 class GetOffice implements UseCase<Office, NoParams> {
-  final OfficeRepository repository;
+  final DashboardRepository repository;
 
   GetOffice(this.repository);
 
